@@ -1,0 +1,39 @@
+ {% extends 'base.html' %} {{block.super}} {% block content %}
+ 
+<script>
+  function myFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    document.execCommand("Copy");
+    alert("Copied the text: " + copyText.value);
+  }
+</script>
+
+<div class="container mt-5" style="padding-bottom: 40px;">
+  <div class="row">
+    <div class="col-md-6">
+    <div id="image" class="p-1" style="text-align: center; margin: 0 auto;">
+      <div id="front" class="zoom">
+        <img src="{{image.image_url}}" alt="test" class="img-fluid">
+      </div>
+      <div id="back" class="zoom">
+        <div class="shadow"></div>
+
+        <img src="{{image.image_url}}" alt="test" class="img-fluid">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6" style="padding-top: 5%;">
+    <div class="container2 p-3">
+      <h3>Details</h3>
+      <p>Location: {{image.location.location}}</p>
+      <p>Title: {{image.image_name}}</p>
+      <p>Description: {{image.description}}</p>
+      <input class="form-control" type="text" value="{{image.image_url}}" id="myInput">
+      <a onclick="myFunction()" class="btn-brown mt-3">Copy link</a>
+    </div>
+
+  </div>
+</div>
+</div>
+{% endblock %}
