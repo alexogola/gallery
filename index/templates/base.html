@@ -1,0 +1,94 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> {% block styles %}
+  <link rel="stylesheet" href="{% static 'index/main.css' %}"> {% endblock %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // Flip card to the back side
+      console.log("Working");
+      $('.button').click(function() {
+        var imageId = $(this).attr('id').split('-')[1];
+        console.log("clicked" + imageId);
+        $('#image').addClass('flip-10 imageId');
+        setTimeout(function() {
+          $('#image').removeClass('flip-10').addClass('flip90 imageId').find('div.shadow').show().fadeTo(80, 1, function() {
+            $('#front, #front div.shadow').hide();
+          });
+        }, 50);
+
+        setTimeout(function() {
+          $('#image').removeClass('flip90').addClass('flip190 imageId');
+          $('#back').show().find('div.shadow').show().fadeTo(90, 0);
+          setTimeout(function() {
+            $('#image').removeClass('flip190').addClass('flip180 imageId').find('div.shadow').hide();
+            setTimeout(function() {
+              $('#image').css('transition', '100ms ease-out');
+              $('#cx, #cy').addClass('s1 imageId');
+              setTimeout(function() {
+                $('#cx, #cy').addClass('s2 imageId');
+              }, 100);
+              setTimeout(function() {
+                $('#cx, #cy').addClass('s3 imageId');
+              }, 200);
+            }, 100);
+          }, 100);
+        }, 150);
+      })
+
+      $('#flip-back').click(function() {
+
+        $('#image').removeClass('flip180').addClass('flip190');
+        setTimeout(function() {
+          $('#image').removeClass('flip190').addClass('flip90');
+
+          $('#back div.shadow').css('opacity', 0).fadeTo(100, 1, function() {
+            $('#back, #back div.shadow').hide();
+            $('#front, #front div.shadow').show();
+          });
+        }, 50);
+
+        setTimeout(function() {
+          $('#image').removeClass('flip90').addClass('flip-10');
+          $('#front div.shadow').show().fadeTo(100, 0);
+          setTimeout(function() {
+            $('#front div.shadow').hide();
+            $('#image').removeClass('flip-10').css('transition', '100ms ease-out');
+            $('#cx, #cy').removeClass('s1 s2 s3');
+          }, 100);
+        }, 150);
+
+      });
+
+
+    });
+  </script>
+
+  {% if title %}
+  <title>{{title}}</title>
+  {% else %}
+  <title>Delurk</title>
+  {% endif %}
+</head>
+
+<body>
+
+  {% include 'navbar.html' %} {% block content %} {% endblock %}
+</body>
+
+</html>
