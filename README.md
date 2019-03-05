@@ -33,6 +33,11 @@ This is an app that allows users to view photos and get information about where 
 * connect to the database \c gallery
 * check if tables have been created \dt
 
+#Run migrations
+
+* python3.6 manage.py migrate
+* python3.6 manage.py makemigrations gallerys
+
 
 
 # Technologies Used
