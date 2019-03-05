@@ -42,6 +42,10 @@ This is an app that allows users to view photos and get information about where 
 
 * python3.6 manage.py runserver
 
+#testing
+
+* python3.6 manage.py test gallerys
+
 
 
 
