@@ -42,10 +42,10 @@ This is an app that allows users to view photos and get information about where 
 ## Behaviour driven development
 | Behaviour   |      Input     |  Output |
 |----------|:-------------:|------:|
-| Sign up | Enter email and password |   Sign in successful |
-| Log in | Enter email and password |   Login successful |
-| Comment | Enter comment and click post button |  Comment published successful |
-| View Quotes | Click Quotes tab on the menu |  Random quote is generated |
+| Display Images | Link to the landing page |   User can view different Images |
+| Expand Image (View full size) | Click "View Full Size" button |   Expanded Image |
+| View More Details | Expand Image |  More details appear on the right side of the expanded image |
+| Copy a link to the photo | Click "Copy Link" button in the details section |  Link is copied to the clipboard |
 
 
 # License
