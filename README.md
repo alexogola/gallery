@@ -25,7 +25,13 @@ This is an app that allows users to view photos and get information about where 
 * $ cd gallery
 * $ source virtual/bin/activate
 * Install all the necessary requirements by running pip install -r requirements.txt (Python 3).
-* $ ./manage.py runserver
+
+#create a database
+
+* psql
+* CREATE DATABASE gallery
+* connect to the database \c gallery
+* check if tables have been created \dt
 
 
 
